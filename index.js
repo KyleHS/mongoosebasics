@@ -7,16 +7,24 @@ async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/movieApp');
 }
 
-//Schema
-
 const movieSchema = new mongoose.Schema({
-  title: 'Where the Wild Things Are',
-  year: 1999,
-  score: 8.6,
-  rating: 'pg'
+  title: String,
+  year: Number,
+  score: Number
 });
 
 //name passed through must have an uppercase letter
 const Movie = mongoose.model('Movie', movieSchema);
 
-new Movie({title: 'Amadeus', year: 1986, score: 9.2});
+Movie.insertMany([
+  {title: 'Amadeus', year: 1986, score: 9.2},
+  {title: 'Up', year: 2007, score: 9.2},
+  {title: 'Frozen', year: 2015, score: 9.2},
+  {title: 'Frozen 2', year: 2020, score: 9.2},
+  {title: 'Tangled', year: 2008, score: 9.2}
+])
+
+.then(data => {
+  console.log("IT Worked")
+  console.log(data);
+})

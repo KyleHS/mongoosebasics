@@ -32,3 +32,11 @@ Movie.insertMany([
   console.log("IT Worked")
   console.log(data);
 })
+
+//in mongosh:  Movie.find({year: {{$gte: 2015}}).then(data => console.log(data))   .... this is used to find specific data in mongo.  gte is greater than or equal to
+
+//Movie.find({_id: ''}).then(m => console.log(m))
+
+//UPDATING IN MONGOOSE
+
+//Model.updateOne() or Model.updateMany()
